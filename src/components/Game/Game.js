@@ -8,16 +8,14 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import Banner from '../Banner';
 import { checkGuess } from '../../game-helpers';
 
-// Pick a random word on every pageload.
-const answer = sample(WORDS);
-// To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
-
 function Game() {
     //setting the state for the guesses and results
     const [guesses, setGuesses] = React.useState([]);
     const [results, setResults] = React.useState([]);
     const [gameResult, setGameResult] = React.useState('');
+    const [answer, setAnswer] = React.useState(sample(WORDS));
+
+    console.info({ answer });
 
     function handleSubmit(guess) {
         if (!guess || guesses.length === NUM_OF_GUESSES_ALLOWED) {
@@ -43,6 +41,7 @@ function Game() {
         setGuesses([]);
         setResults([]);
         setGameResult('');
+        setAnswer(sample(WORDS));
     }
 
     return (
