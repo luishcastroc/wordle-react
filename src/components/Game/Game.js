@@ -18,10 +18,10 @@ function Game() {
     console.info({ answer });
 
     function handleSubmit(guess) {
-        if (!guess || guesses.length === NUM_OF_GUESSES_ALLOWED) {
+        if (!guess) {
             return;
         }
-        const nextGuesses = [...guesses, { id: crypto.randomUUID(), word: guess }];
+        const nextGuesses = [...guesses, guess];
         const nextResults = [...results, checkGuess(guess, answer)];
 
         setGuesses(nextGuesses);

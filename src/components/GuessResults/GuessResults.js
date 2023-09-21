@@ -1,8 +1,9 @@
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import { range } from '../../utils';
 
 function GuessResults({ results }) {
-    const rowsRange = range(0, 6, 1);
-    const cellsRange = range(0, 5, 1);
+    const rowsRange = range(NUM_OF_GUESSES_ALLOWED);
+    const cellsRange = range(5);
 
     function getCellClass(row, cell) {
         if (!results[row] || !results[row][cell] || results.length === 0) {
